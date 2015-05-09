@@ -1,0 +1,16 @@
+{
+  "name": "sync-md-elephant",
+  "main": "./lib/sync-md-elephant",
+  "version": "0.0.0",
+  "description": "A short description of your package",
+  "activationCommands": {
+    "atom-workspace": "sync-md-elephant:toggle"
+  },
+  "repository": "https://github.com/atom/sync-md-elephant",
+  "license": "MIT",
+  "engines": {
+    "atom": ">=0.174.0 <2.0.0"
+  },
+  "dependencies": {
+  }
+}
