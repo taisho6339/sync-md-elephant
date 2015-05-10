@@ -6,7 +6,6 @@ module.exports =
         convertToHtml: (text) ->
             marked = require 'marked'
             html = marked(text)
-            console.log(html)
             return html
 
         convert: ->
