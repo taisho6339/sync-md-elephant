@@ -32,13 +32,6 @@ module.exports = SyncMdElephant =
 
 
   syncMd: ->
-
     html = @mdConverter.convert()
-    # html = "<h1>おっぱい</h1>
-    #  <h2>おっぱい</h2>
-    #  <ul>
-    #     <li>Dカップ</li>
-    #     <li>Cカップ</li>
-    #     <li>Bカップ</li>
-    #  </ul>"
+    console.log(html)
     @elephantManager.postNote(@mdConverter.getTitle() , html)

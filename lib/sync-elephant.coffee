@@ -13,8 +13,6 @@ module.exports =
                 sandbox: true
             })
 
-            console.log(Config.TOKEN)
-
             @noteStore = @client.getNoteStore()
 
         createContent: (content) ->
@@ -31,8 +29,6 @@ module.exports =
             note = new Note()
             note.title = title
             note.content = @createContent(content)
-
-            console.log(note.content)
 
             @noteStore.createNote(note,(err,note)->
                 console.log("post note")
