@@ -8,6 +8,9 @@ module.exports =
             html = marked(text)
             return html
 
+        getTitle: ->
+            return @editor.getTitle()
+
         convert: ->
             text = @editor.getText()
             html = @convertToHtml(text)
