@@ -3,20 +3,29 @@ module.exports =
 
         convertToHtml: (text) ->
             marked = require 'marked'
-            {allowUnsafeEval, allowUnsafeNewFunction} = require 'loophole'
-            allowUnsafeEval -> allowUnsafeNewFunction -> juice = require 'juice'
+            inliner = require 'inline-css'
 
             marked.setOptions({
-                "highlight": (code) ->
+                "highlight" : (code) ->
                     require('highlight.js').highlightAuto(code).value
-            })
+                })
             html = marked(text)
-            html = html.replace(/(id=\".*\")/g,"")
-            console.log(html)
-
+            html = html.replace(/(id=\".*\")/g, "")
+            # console.log(html)
             html = "<style>" + css + "</style>" + html
-
-            html = juice(html)
+            inliner(html,
+                {
+                    applyStyleTags : true,
+                    applyLinkTags : true,
+                    removeStyleTags : true,
+                    removeLinkTags : true,
+                    url : "filePath"
+                },
+                (err, res) ->
+                    console.log(res)
+                    html = res
+                    html = html.replace(/(class=\"[^\s]*\")/g, "")
+            )
             return html
 
         getTitle: ->
