@@ -39,6 +39,15 @@ module.exports =
             return html
 
         css = """
+              pre {
+                display: block;
+                overflow-x: auto;
+                padding: 0.5em;
+                background: #000;
+                color: #f8f8f8;
+                -webkit-text-size-adjust: none;
+              }
+
               .hljs {
                 display: block;
                 overflow-x: auto;
